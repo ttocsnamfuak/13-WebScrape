@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Mission</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/clear" role="button">Clear Results</a></p>
+    </div>
+
+    <!-- MARS Listings -->
+    {% for listing in listings %}
+    <div class="row" id="mars-listings">
+      <div class="col-md-12">
+        <h4 class="heading">{{listing.newsTitle}}</h4>
+        <p>{{listing.newsPara}}</p> 
+      </div>
+    </div>
+    <div class="row" id="marsTableFacts">
+      <div class="col-md-8">
+        <h4 class="heading">Featured Mars Image</h4>
+        <br>
+        <img src={{listing.imageod}}  alt="Mars Image" width="600" height="600"> 
+      </div>
+      <div class="col-md-4">
+        <h4 class="heading">Current Mars Weather</h4>
+        <br>
+        <p>{{listing.weather}}</p>
+        <br>
+        <h4 class="heading">Fun Mars Facts</h4>
+        <br>
+        <div id="tableMars">
+            {{listing.mFacts|safe}}
+        </div>
+        
+      </div>
+    </div>
+    <div class="row" id="marsHemiPics1">
+      <div class="col-md-6">
+        <h4 class="heading">{{listing.hemi1Title}}</h4>
+        <br>
+        <img src={{listing.hemi1Image}}  alt="Mars Image" width="400" height="400"> 
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading">{{listing.hemi2Title}}</h4>
+        <br>
+        <img src={{listing.hemi2Image}}  alt="Mars Image" width="400" height="400"> 
+      </div>
+    </div>
+    <div class="row" id="marsHemiPics2">
+      <div class="col-md-6">
+        <h4 class="heading">{{listing.hemi3Title}}</h4>
+        <br>
+        <img src={{listing.hemi3Image}}  alt="Mars Image" width="400" height="400"> 
+      </div>
+      <div class="col-md-6">
+        <h4 class="heading">{{listing.hemi4Title}}</h4>
+        <br>
+        <img src={{listing.hemi4Image}}  alt="Mars Image" width="400" height="400"> 
+      </div>
+    </div>
+    {% endfor %}
+
+
+  
+  
+  
+  </div>
+
+
+
+
+
+</body>
+
+</html>
+
